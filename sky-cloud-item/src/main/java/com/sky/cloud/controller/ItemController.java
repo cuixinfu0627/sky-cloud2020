@@ -1,13 +1,13 @@
 package com.sky.cloud.controller;
 
 import com.sky.cloud.entity.ItemEntity;
+import com.sky.cloud.service.ItemService;
 import com.sky.cloud.view.PageUtils;
 import com.sky.cloud.view.R;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.sky.cloud.service.*;
 
-import java.util.Arrays;
 import java.util.Map;
 
 
@@ -20,15 +20,16 @@ import java.util.Map;
  * @date 2020-12-19 15:36:10
  */
 @RestController
-@RequestMapping("theme/item")
+@RequestMapping("item")
 public class ItemController {
+
     @Autowired
     private ItemService itemService;
 
     /**
      * 列表
      */
-    @RequestMapping("/list")
+    @GetMapping("/list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = itemService.queryPage(params);
 
@@ -39,7 +40,7 @@ public class ItemController {
     /**
      * 信息
      */
-    @RequestMapping("/info/{id}")
+    @GetMapping("/info/{id}")
     public R info(@PathVariable("id") Long id){
 		ItemEntity item = itemService.getById(id);
 
@@ -49,29 +50,9 @@ public class ItemController {
     /**
      * 保存
      */
-    @RequestMapping("/save")
-    public R save(@RequestBody ItemEntity item){
+    @PostMapping("/create")
+    public R create(@RequestBody ItemEntity item){
 		itemService.save(item);
-
-        return R.ok();
-    }
-
-    /**
-     * 修改
-     */
-    @RequestMapping("/update")
-    public R update(@RequestBody ItemEntity item){
-		itemService.updateById(item);
-
-        return R.ok();
-    }
-
-    /**
-     * 删除
-     */
-    @RequestMapping("/delete")
-    public R delete(@RequestBody Long[] ids){
-		itemService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
     }
