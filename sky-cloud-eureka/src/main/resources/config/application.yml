@@ -1,0 +1,34 @@
+server:
+  port: @eureka-server-port@
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+    servlet:
+      context-path: /
+
+spring:
+  application:
+    name: eureka-server
+  profiles:
+    active: @package.environment@
+
+# eureka 配置
+eureka:
+  instance:
+    hostname: eureka-server # 服务端的实例名称
+    instance-id: eureka-server
+    prefer-ip-address: true
+
+  client:
+    register-with-eureka: false # false表示不向自己注册
+    fetch-registry: false # false衣示自己端成是注册中心，我的积资就是签我服务实，并不需延去检索服务
+    # #设置与Eureka Server交互的始址查询服务和注般服务部需要在藏这个婚址
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}：${server.port}/eureka/
+  server:
+    enable-self-preservation: true # 设为false，关闭自我保护
+    eviction-interval-timer-in-ms: 10000 # #清理间隔（单位毫秒，默认是60*1000）
+
+logging:
+  config: classpath:logback.xml
