@@ -1,7 +1,5 @@
 package com.sky.cloud.service;
 
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.sky.cloud.entity.OrderEntity;
 import com.sky.cloud.service.impl.OrderFeignFallBackService;
 import com.sky.cloud.view.R;

@@ -27,6 +27,7 @@
     <module>sky-cloud-order</module>
     <module>sky-cloud-passport</module>
     <module>sky-cloud-eureka</module>
+    <module>sky-cloud-gateway</module>
   </modules>
 
   <properties>
@@ -251,25 +252,35 @@
       </activation>
       <properties>
 
-        <!--service-passport 模块-->
+        <!--passport-service 模块-->
         <passport-server-port-suffix>01</passport-server-port-suffix>
         <passport-server-port>80${passport-server-port-suffix}</passport-server-port>
         <passport-devtools-livereload-port>100${passport-server-port-suffix}</passport-devtools-livereload-port>
 
-        <!--service-order 模块-->
+        <!--order-service 模块-->
         <order-server-port-suffix>02</order-server-port-suffix>
         <order-server-port>80${order-server-port-suffix}</order-server-port>
         <order-devtools-livereload-port>100${order-server-port-suffix}</order-devtools-livereload-port>
 
-        <!--service-item 模块-->
+        <!--item-service 模块-->
         <item-server-port-suffix>03</item-server-port-suffix>
         <item-server-port>80${item-server-port-suffix}</item-server-port>
         <item-devtools-livereload-port>100${item-server-port-suffix}</item-devtools-livereload-port>
 
-        <!--service-eureka 模块-->
+        <!--eureka-server 注册中心模块 - eureka -->
         <eureka-server-port-suffix>01</eureka-server-port-suffix>
         <eureka-server-port>70${eureka-server-port-suffix}</eureka-server-port>
         <eureka-devtools-livereload-port>100${eureka-server-port-suffix}</eureka-devtools-livereload-port>
+
+        <!--nacos-server 注册中心模块 - nacos -->
+        <nacos-server-port-suffix>01</nacos-server-port-suffix>
+        <nacos-server-port>70${nacos-server-port-suffix}</nacos-server-port>
+        <eureka-devtools-livereload-port>100${nacos-server-port-suffix}</eureka-devtools-livereload-port>
+
+        <!--gateway-server- 服务网关模块一般都是9527-->
+        <gateway-server-port-suffix>27</gateway-server-port-suffix>
+        <gateway-server-port>95${gateway-server-port-suffix}</gateway-server-port>
+        <eureka-devtools-livereload-port>100${gateway-server-port-suffix}</eureka-devtools-livereload-port>
 
       </properties>
     </profile>
