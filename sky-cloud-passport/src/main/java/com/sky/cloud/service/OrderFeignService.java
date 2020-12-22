@@ -1,6 +1,9 @@
 package com.sky.cloud.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.sky.cloud.entity.OrderEntity;
+import com.sky.cloud.service.impl.OrderFeignFallBackService;
 import com.sky.cloud.view.R;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
@@ -18,7 +21,7 @@ import java.util.Map;
  * @date: 2020/12/21 15:27 <tb>
  */
 @Component
-@FeignClient(value = "ORDER-SERVICE")
+@FeignClient(value = "ORDER-SERVICE",fallback = OrderFeignFallBackService.class)
 public interface OrderFeignService {
 
     @RequestMapping("order/list")
@@ -32,5 +35,8 @@ public interface OrderFeignService {
 
     @RequestMapping("/order/openfeign/timeout")
     public R openfeignTimeout();
+
+    @RequestMapping("/order/hystrix/circuitBreaker")
+    public R hystrixCircuitBreaker(OrderEntity order);
 
 }

@@ -98,12 +98,27 @@ public class OrderController {
         return  R.ok().put("instances",instances);
     }
 
+    /**
+     * openfeign 调用超时
+     */
     @GetMapping("/openfeign/timeout")
     public R openFeignTimeOut() {
 
         TimeUnit.SECONDS.toSeconds(3);
 
         return  R.ok("测试openFeign超时!!!");
+    }
+
+    /**
+     * hystrix 服务熔断
+     */
+    @RequestMapping("/hystrix/circuitBreaker")
+    public R circuitBreaker(@RequestBody OrderEntity order){
+
+        order.setCreateTime(new Date());
+        orderService.save(order);
+
+        return R.ok("创建订单成功,serverPort:" + serverPort);
     }
 
 }

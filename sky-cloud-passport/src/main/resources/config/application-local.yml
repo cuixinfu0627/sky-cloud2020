@@ -21,3 +21,8 @@ logging:
   level:
     # feign日志以什么级别监州哪个接口
     com.sky.cloud.service.OrderFeignService: debug
+
+# feign 配置对hystrix的支持
+feign:
+  hystrix:
+    enabled: true

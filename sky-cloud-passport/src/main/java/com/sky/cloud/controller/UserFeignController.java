@@ -12,7 +12,7 @@ import java.util.Map;
 
 
 /**
- * 经销商用户
+ * 使用 openfeign 调用
  *
  * @author live
  * @email 870459550@qq.com
@@ -25,9 +25,6 @@ public class UserFeignController {
     @Resource
     private OrderFeignService orderFeignService;
 
-    /**
-     * http://127.0.0.1:8002/order/list
-     */
     @GetMapping("/order/list")
     public R orderList(@RequestParam Map<String, Object> params){
 
@@ -36,9 +33,6 @@ public class UserFeignController {
         return result;
     }
 
-    /**
-     * http://127.0.0.1:8002/order/info/1001
-     */
     @GetMapping("/order/info/{id}")
     public R info(@PathVariable("id") Long id){
 
@@ -47,22 +41,8 @@ public class UserFeignController {
         return result;
     }
 
-    /**http://127.0.0.1:8002/order/create
-     * {
-     *     "payment": 790000,
-     *     "orderNum": "1235649864",
-     *     "itemId": "1001",
-     *     "itemTitle": "40g海婷海带丝（25包一箱）卖9.9",
-     *     "userId": 1,
-     *     "username": "孙行者",
-     *     "mobile": "15010089114",
-     *     "address": "花果山水帘洞齐天大圣美猴王孙悟空",
-     *     "message": "充数下班侧",
-     *     "status": 1
-     * }
-     */
     @PostMapping("/order/create")
-    public R info(@RequestBody OrderEntity order){
+    public R create(@RequestBody OrderEntity order){
         R result = orderFeignService.create(order);;
         return result;
     }

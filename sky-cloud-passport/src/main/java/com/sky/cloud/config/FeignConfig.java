@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @name: FeignConfig <tb>
- * @title: FeignConfig 日志  <tb>
+ * @title: FeignConfig 日志级别  <tb>
  * @author: cuixinfu@51play.com <tb>
  * @date: 2020/12/21 16:03 <tb>
  */

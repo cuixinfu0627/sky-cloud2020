@@ -13,8 +13,7 @@ import java.util.Map;
 
 
 /**
- * 经销商用户
- *
+ * 用户 使用RestTemplate调用
  * @author live
  * @email 870459550@qq.com
  * @date 2020-12-19 15:36:10
@@ -77,7 +76,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/order/create")
-    public R info(@RequestBody OrderEntity order){
+    public R create(@RequestBody OrderEntity order){
         R result = restTemplate.postForObject(invoke_url + "/order/create", order,R.class);
         return result;
     }
