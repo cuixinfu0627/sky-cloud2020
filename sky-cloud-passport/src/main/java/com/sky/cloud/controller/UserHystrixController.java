@@ -22,7 +22,7 @@ import java.util.Map;
  * @date 2020-12-19 15:36:10
  */
 @RestController
-@RequestMapping("user-hystrix") 
+@RequestMapping("user-hystrix")
 @DefaultProperties(defaultFallback ="createOrder_Global_Fallback")
 public class UserHystrixController {
 
