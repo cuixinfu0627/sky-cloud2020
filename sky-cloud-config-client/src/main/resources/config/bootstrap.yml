@@ -13,12 +13,8 @@ spring:
   profiles:
     active: @package.environment@
 
-#暴露监控端点 curl-X POST "http://localhost:9528/actuator/refresh"
-  management:
-    endpoints:
-      web:
-        exposure:
-          include: "*"
-
 logging:
   config: classpath:logback.xml
+
+config:
+  info: "abcdefg"

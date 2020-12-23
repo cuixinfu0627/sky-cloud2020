@@ -18,6 +18,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
+        <!-- 添加MQ消息总线支持-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
 
         <!-- eureka-client -->
         <dependency>
@@ -46,8 +51,8 @@
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>*.xml</include>
-                    <include>config/application.yml</include>
-                    <include>config/application-${package.environment}.yml</include>
+                    <include>config/bootstrap.yml</include>
+                    <include>config/bootstrap-${package.environment}.yml</include>
                     <include>mybatis/**</include>
                 </includes>
                 <filtering>true</filtering>

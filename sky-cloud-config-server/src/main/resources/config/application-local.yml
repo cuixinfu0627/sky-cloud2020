@@ -10,7 +10,7 @@ eureka:
     instance-id: config-server
     prefer-ip-address: true
 
-# gateway 配置
+# config 配置
 spring:
   cloud:
     config:
@@ -20,3 +20,18 @@ spring:
           uri: https://github.com/cuixinfu0627/sky-cloud-config.git
           search-paths: cloud-config
       label: master
+  #rabbitmq润光配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+#暴露监控端点 curl -X POST "http://localhost:9528/actuator/refresh" 全局刷新
+#暴露监控端点 curl -X POST "http://localhost:9528/actuator/bus-refresh/config-client:9529" 局部刷新
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
+

@@ -257,42 +257,42 @@
         <!--passport-service 模块-->
         <passport-server-port-suffix>01</passport-server-port-suffix>
         <passport-server-port>80${passport-server-port-suffix}</passport-server-port>
-        <passport-devtools-livereload-port>100${passport-server-port-suffix}</passport-devtools-livereload-port>
+        <passport-devtools-port>100${passport-server-port-suffix}</passport-devtools-port>
 
         <!--order-service 模块-->
         <order-server-port-suffix>02</order-server-port-suffix>
         <order-server-port>80${order-server-port-suffix}</order-server-port>
-        <order-devtools-livereload-port>100${order-server-port-suffix}</order-devtools-livereload-port>
+        <order-devtools-port>100${order-server-port-suffix}</order-devtools-port>
 
         <!--item-service 模块-->
         <item-server-port-suffix>03</item-server-port-suffix>
         <item-server-port>80${item-server-port-suffix}</item-server-port>
-        <item-devtools-livereload-port>100${item-server-port-suffix}</item-devtools-livereload-port>
+        <item-devtools-port>100${item-server-port-suffix}</item-devtools-port>
 
         <!--eureka-server 注册中心模块 - eureka -->
         <eureka-server-port-suffix>01</eureka-server-port-suffix>
         <eureka-server-port>70${eureka-server-port-suffix}</eureka-server-port>
-        <eureka-devtools-livereload-port>100${eureka-server-port-suffix}</eureka-devtools-livereload-port>
+        <eureka-devtools-port>100${eureka-server-port-suffix}</eureka-devtools-port>
 
         <!--nacos-server 注册中心模块 - nacos -->
         <nacos-server-port-suffix>01</nacos-server-port-suffix>
         <nacos-server-port>70${nacos-server-port-suffix}</nacos-server-port>
-        <nacos-devtools-livereload-port>100${nacos-server-port-suffix}</nacos-devtools-livereload-port>
+        <nacos-devtools-port>100${nacos-server-port-suffix}</nacos-devtools-port>
 
         <!--gateway-server- 服务网关模块一般都是9527-->
         <gateway-server-port-suffix>27</gateway-server-port-suffix>
         <gateway-server-port>95${gateway-server-port-suffix}</gateway-server-port>
-        <gateway-devtools-livereload-port>100${gateway-server-port-suffix}</gateway-devtools-livereload-port>
+        <gateway-devtools-port>100${gateway-server-port-suffix}</gateway-devtools-port>
 
         <!--config-server- 服务网关模块一般都是9527-->
         <config-server-port-suffix>28</config-server-port-suffix>
         <config-server-port>95${config-server-port-suffix}</config-server-port>
-        <config-devtools-livereload-port>100${config-server-port-suffix}</config-devtools-livereload-port>
+        <config-devtools-port>100${config-server-port-suffix}</config-devtools-port>
 
         <!--config-server- 服务网关模块一般都是9527-->
         <config-client-port-suffix>29</config-client-port-suffix>
         <config-client-port>95${config-client-port-suffix}</config-client-port>
-        <config-devtools-livereload-port>100${config-client-port-suffix}</config-devtools-livereload-port>
+        <config-devtools-port>100${config-client-port-suffix}</config-devtools-port>
 
 
       </properties>

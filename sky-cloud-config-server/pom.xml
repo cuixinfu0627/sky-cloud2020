@@ -13,18 +13,17 @@
 
     <dependencies>
 
+        <!-- 添加MQ消息总线支持-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+
         <!-- springcloud-config-server -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
-
-        <!-- springcloud-config-client
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-start-config</artifactId>
-        </dependency>-->
-
 
         <!-- eureka-client -->
         <dependency>

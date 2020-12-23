@@ -10,7 +10,7 @@ eureka:
     instance-id: config-server
     prefer-ip-address: true
 
-# gateway 配置
+# config 配置
 spring:
   cloud:
     config:
@@ -18,6 +18,16 @@ spring:
       name: cloud-config  #配置文件名称
       profile: dev        #读取后缀名称
       uri: http://localhost:9528  #配置中心地址
+  #rabbitmq润光配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
-config:
-  info: "abcd"
+#暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
