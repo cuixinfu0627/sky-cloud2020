@@ -1,0 +1,22 @@
+# eureka 配置
+eureka:
+  client:
+    register-with-eureka: true # 表示是否将自己注册进Eurekaserver群认为true。
+    fetchRegistry: true # true衣示自己端成是注册中心，我的积资就是签我服务实，并不需延去检索服务
+    # #设置与Eureka Server交互的始址查询服务和注般服务部需要在藏这个婚址
+    service-url:
+      defaultZone: http://eureka-server:7001/eureka
+  instance:
+    instance-id: config-server
+    prefer-ip-address: true
+
+# gateway 配置
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          #uri: git@github.com:cuixinfu0627/sky-cloud-config.git
+          uri: https://github.com/cuixinfu0627/sky-cloud-config.git
+          search-paths: cloud-config
+      label: master

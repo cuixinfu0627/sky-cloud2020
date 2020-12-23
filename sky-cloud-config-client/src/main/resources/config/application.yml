@@ -1,0 +1,24 @@
+server:
+  port: @config-client-port@
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+    servlet:
+      context-path: /
+
+spring:
+  application:
+    name: config-client
+  profiles:
+    active: @package.environment@
+
+#暴露监控端点 curl-X POST "http://localhost:9528/actuator/refresh"
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
+
+logging:
+  config: classpath:logback.xml

@@ -23,11 +23,13 @@
 
   <modules>
     <module>sky-cloud-common</module>
+    <module>sky-cloud-eureka</module>
+    <module>sky-cloud-gateway</module>
     <module>sky-cloud-item</module>
     <module>sky-cloud-order</module>
     <module>sky-cloud-passport</module>
-    <module>sky-cloud-eureka</module>
-    <module>sky-cloud-gateway</module>
+    <module>sky-cloud-config-server</module>
+    <module>sky-cloud-config-client</module>
   </modules>
 
   <properties>
@@ -275,12 +277,23 @@
         <!--nacos-server 注册中心模块 - nacos -->
         <nacos-server-port-suffix>01</nacos-server-port-suffix>
         <nacos-server-port>70${nacos-server-port-suffix}</nacos-server-port>
-        <eureka-devtools-livereload-port>100${nacos-server-port-suffix}</eureka-devtools-livereload-port>
+        <nacos-devtools-livereload-port>100${nacos-server-port-suffix}</nacos-devtools-livereload-port>
 
         <!--gateway-server- 服务网关模块一般都是9527-->
         <gateway-server-port-suffix>27</gateway-server-port-suffix>
         <gateway-server-port>95${gateway-server-port-suffix}</gateway-server-port>
-        <eureka-devtools-livereload-port>100${gateway-server-port-suffix}</eureka-devtools-livereload-port>
+        <gateway-devtools-livereload-port>100${gateway-server-port-suffix}</gateway-devtools-livereload-port>
+
+        <!--config-server- 服务网关模块一般都是9527-->
+        <config-server-port-suffix>28</config-server-port-suffix>
+        <config-server-port>95${config-server-port-suffix}</config-server-port>
+        <config-devtools-livereload-port>100${config-server-port-suffix}</config-devtools-livereload-port>
+
+        <!--config-server- 服务网关模块一般都是9527-->
+        <config-client-port-suffix>29</config-client-port-suffix>
+        <config-client-port>95${config-client-port-suffix}</config-client-port>
+        <config-devtools-livereload-port>100${config-client-port-suffix}</config-devtools-livereload-port>
+
 
       </properties>
     </profile>
