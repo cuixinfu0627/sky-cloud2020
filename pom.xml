@@ -30,6 +30,8 @@
     <module>sky-cloud-passport</module>
     <module>sky-cloud-config-server</module>
     <module>sky-cloud-config-client</module>
+    <module>sky-cloud-stream-rabbitmq-provider</module>
+    <module>sky-cloud-stream-rabbitmq-consumer</module>
   </modules>
 
   <properties>
@@ -293,6 +295,16 @@
         <config-client-port-suffix>29</config-client-port-suffix>
         <config-client-port>95${config-client-port-suffix}</config-client-port>
         <config-devtools-port>100${config-client-port-suffix}</config-devtools-port>
+
+        <!--stream-rabbitmq-provider -->
+        <stream-rabbitmq-provider-port-suffix>01</stream-rabbitmq-provider-port-suffix>
+        <stream-rabbitmq-provider-port>88${stream-rabbitmq-provider-port-suffix}</stream-rabbitmq-provider-port>
+        <stream-rabbitmq-provider-devtools-port>100${stream-rabbitmq-provider-port-suffix}</stream-rabbitmq-provider-devtools-port>
+
+        <!--stream-rabbitmq-consumer -->
+        <stream-rabbitmq-consumer-port-suffix>02</stream-rabbitmq-consumer-port-suffix>
+        <stream-rabbitmq-consumer-port>88${stream-rabbitmq-consumer-port-suffix}</stream-rabbitmq-consumer-port>
+        <stream-rabbitmq-consumer-devtools-port>100${stream-rabbitmq-consumer-port-suffix}</stream-rabbitmq-consumer-devtools-port>
 
 
       </properties>

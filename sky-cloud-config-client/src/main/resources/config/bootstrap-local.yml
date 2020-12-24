@@ -7,7 +7,7 @@ eureka:
     service-url:
       defaultZone: http://eureka-server:7001/eureka
   instance:
-    instance-id: config-server
+    instance-id: config-client
     prefer-ip-address: true
 
 # config 配置
