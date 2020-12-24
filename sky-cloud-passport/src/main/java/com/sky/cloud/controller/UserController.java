@@ -81,4 +81,11 @@ public class UserController {
         return result;
     }
 
+    // zipkin+sleuth
+    @GetMapping("/order/zipkin")
+    public String paymentzipkin(){
+        String result=restTemplate.getForObject(invoke_url + "/order/zipkin/", String.class);
+        return result;
+    }
+
 }

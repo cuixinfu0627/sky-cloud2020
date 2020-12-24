@@ -121,4 +121,12 @@ public class OrderController {
         return R.ok("创建订单成功,serverPort:" + serverPort);
     }
 
+    /**
+     * zipkin 链路追踪
+     */
+    @GetMapping("/zipkin")
+    public String orderZipkin(){
+        return "hi,i'am paymentzipkin server fall back，welcome to atguigu,o（n_n）o哈哈~";
+    }
+
 }
