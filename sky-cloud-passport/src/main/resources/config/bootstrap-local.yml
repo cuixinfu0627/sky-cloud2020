@@ -1,0 +1,43 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml
+        shared-dataids: sky-common-service.yaml
+        refreshable-dataids: sky-common-service.yaml
+      discovery:
+        server-addr: 127.0.0.1:8848
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      #采样疼值介于0到1之间，1则表示全部采集
+      probability: 1
+
+#消费者将要去访问的微服务名称（注册成功进nacos的微服务是供者）
+service-url:
+  nacos-order-service: http://order-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+# 设置feign客户端超时时间（OpenFeign默认支持ribbon）
+ribbon:
+  # 指的是建立连接所用的时间，适用于网络状况正常的情况下，两端连接所用的时间
+  ReadTimeout: 5000
+  #指的是建立连接后从服务器读取到可用资源所用的时间
+  ConnectTimeout: 5000
+
+logging:
+  level:
+    # feign日志以什么级别监州哪个接口
+    com.sky.cloud.service.OrderFeignService: debug
+
+# feign 配置对hystrix的支持
+feign:
+  hystrix:
+    enabled: true

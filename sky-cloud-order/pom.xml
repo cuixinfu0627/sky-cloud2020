@@ -12,16 +12,17 @@
     <artifactId>sky-cloud-order</artifactId>
 
     <dependencies>
-        <!-- sleuth+zipkin -->
+
+        <!--nacos discovery是每个微服务都需要使用的依赖，所以提取到父类-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!--链路追踪 Sleuth+ZipKin-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>
-
-        <!-- eureka-client -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
 
         <dependency>

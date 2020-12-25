@@ -5,6 +5,8 @@ import com.sky.cloud.service.UserService;
 import com.sky.cloud.view.PageUtils;
 import com.sky.cloud.view.R;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -18,9 +20,14 @@ import java.util.Map;
  * @email 870459550@qq.com
  * @date 2020-12-19 15:36:10
  */
+
+
 @RestController
 @RequestMapping("user")
 public class UserController {
+
+    @Value("${service-url.nacos-order-service}")
+    private String invoke_url; //http://order-service
 
     @Autowired
     private UserService userService;
@@ -31,8 +38,6 @@ public class UserController {
 
         return R.ok().put("page", page);
     }
-
-    public static final String invoke_url = "http://order-service";
 
     @Resource
     private RestTemplate restTemplate;

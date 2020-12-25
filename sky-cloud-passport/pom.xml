@@ -12,29 +12,27 @@
     <artifactId>sky-cloud-passport</artifactId>
 
     <dependencies>
-
-        <!-- sleuth+zipkin -->
+        <!--1、nacos discovery是每个微服务都需要使用的依赖，所以提取到父类-->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--2、nacos config是每个微服务都需要使用的依赖，所以提取到父类-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-        <!-- eureka-client -->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-
-        <!-- feign -->
+        <!-- 远程调用 feign -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
-        <!-- hystrix -->
+        <!-- 链路追踪 sleuth+zipkin -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
         </dependency>
 
         <dependency>
@@ -105,8 +103,8 @@
                 <directory>src/main/resources</directory>
                 <includes>
                     <include>*.xml</include>
-                    <include>config/application.yml</include>
-                    <include>config/application-${package.environment}.yml</include>
+                    <include>config/bootstrap.yml</include>
+                    <include>config/bootstrap-${package.environment}.yml</include>
                     <include>mybatis/**</include>
                 </includes>
                 <filtering>true</filtering>

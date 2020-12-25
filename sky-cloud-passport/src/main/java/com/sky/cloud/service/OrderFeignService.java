@@ -19,7 +19,7 @@ import java.util.Map;
  * @date: 2020/12/21 15:27 <tb>
  */
 @Component
-@FeignClient(value = "ORDER-SERVICE",fallback = OrderFeignFallBackService.class)
+@FeignClient(value = "${service-url.nacos-order-service}",fallback = OrderFeignFallBackService.class)
 public interface OrderFeignService {
 
     @RequestMapping("order/list")

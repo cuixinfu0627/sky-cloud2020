@@ -18,7 +18,7 @@ public class OrderFeignFallBackService implements OrderFeignService {
 
     @Override
     public R list(Map<String, Object> params) {
-        return R.error("-----------------------OrderFeignService fall back-list");
+        return R.error("-----------------------OrderFeignFallBackService fall back-list");
     }
 
     @Override

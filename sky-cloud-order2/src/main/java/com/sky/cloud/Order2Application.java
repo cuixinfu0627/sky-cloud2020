@@ -20,11 +20,11 @@ import java.util.Map;
  */
 @SpringBootApplication(scanBasePackages = {"com.sky.cloud"})
 @EnableDiscoveryClient
-public class OrderApplication {
-    private static final Logger logger = LoggerFactory.getLogger(OrderApplication.class);
+public class Order2Application {
+    private static final Logger logger = LoggerFactory.getLogger(Order2Application.class);
 
     public static void main(String[] args) throws UnknownHostException {
-        SpringApplication app = new SpringApplication(OrderApplication.class);
+        SpringApplication app = new SpringApplication(Order2Application.class);
         Map<String, Object> defProperties =  new HashMap<String, Object>();
         defProperties.put("spring.profiles.default", "local");
         app.setDefaultProperties(defProperties);

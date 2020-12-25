@@ -1,6 +1,6 @@
 **项目说明** 
 - sky-coloud 是 spring-cloud 学习笔记
-
+- 学习网址: `https://www.bilibili.com/medialist/play/ml1030136371/BV1p7411d73y`
 <br>
 
 **项目结构** 
