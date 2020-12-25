@@ -2,9 +2,12 @@ spring:
   cloud:
     nacos:
       config:
+        # ${spring.application.name]-$(spring.profile.active}.$(spring.cloud.nacos.config.file-extension}
         server-addr: 127.0.0.1:8848
         file-extension: yaml
-        shared-dataids: sky-common-service.yaml
+        group: LOCAL_GROUP  #组名
+        namespace: d7dffbae-b253-46ea-9b85-3bd6fe69b2b1  #命名空间
+        shared-dataids: sky-common-service.yaml  #通用配置
         refreshable-dataids: sky-common-service.yaml
       discovery:
         server-addr: 127.0.0.1:8848

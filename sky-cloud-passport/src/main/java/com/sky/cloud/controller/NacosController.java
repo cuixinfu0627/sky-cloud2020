@@ -25,6 +25,9 @@ public class NacosController {
     @Value("${config.info}")
     private String configInfo;
 
+    @Value("${app.info}")
+    private String appInfo;
+
     @Autowired
     DiscoveryClient discoveryClient;
 
@@ -34,8 +37,13 @@ public class NacosController {
      * @date: 2020/12/25 11:16<tb>
      */
     @RequestMapping("/config")
-    public String test(){
+    public String config(){
         return configInfo;
+    }
+
+    @RequestMapping("/app")
+    public String app(){
+        return appInfo;
     }
 
     /**
