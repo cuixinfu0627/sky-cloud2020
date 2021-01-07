@@ -37,8 +37,8 @@
 
     <!-- jdk版本 -->
     <java.version>1.8</java.version>
-    <log.window.path>D:\\logs\\</log.window.path>
-    <log.linux.path>/home/webuser/logs/</log.linux.path>
+    <log.window.path>D:\\logs\\sky-cloud\\</log.window.path>
+    <log.linux.path>/home/webuser/logs/sky-cloud/</log.linux.path>
     <log.root.level>info</log.root.level>
     <log.history.days>30</log.history.days>
     <log.pattern>===========%d{yyyy-MM-dd HH:mm:ss} %level %c:%L - %msg%n</log.pattern>

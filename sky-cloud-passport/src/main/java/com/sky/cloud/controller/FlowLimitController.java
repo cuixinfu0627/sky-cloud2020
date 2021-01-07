@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @name: FlowLimitController <tb>
- * @title: Sentinel 流控测试  <tb>
+ * @title: 1、Sentinel 流控测试  <tb>
  * @author: cuixinfu@51play.com <tb>
  * @date: 2021/1/5 10:23<tb>
  */
@@ -22,25 +22,32 @@ public class FlowLimitController {
 
     @GetMapping("/testA")
     public R testA(){
-        logger.info("FlowLimitController ------testA");
+        logger.info(Thread.currentThread().getName() + "\t"+"FlowLimitController ------testA");
         return R.ok("------testA");
     }
 
     @GetMapping("/testB")
     public R testB(){
-        logger.info("FlowLimitController ------testB");
+        logger.info(Thread.currentThread().getName() + "\t"+"FlowLimitController ------testB");
         return R.ok("------testB");
     }
 
     @GetMapping("/testC")
     public R testC(){
-        logger.info("FlowLimitController ------testC");
+//        try {
+//            TimeUnit.SECONDS.sleep(1);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+        logger.info(Thread.currentThread().getName() + "\t"+"FlowLimitController ------testC");
+//        logger.info(Thread.currentThread().getName() + "\t"+"异常比例 ------testC");
+//        int age = 10/0;
         return R.ok("------testC");
     }
 
     @GetMapping("/testD")
     public R testD(){
-        logger.info("FlowLimitController ------testD");
+        logger.info(Thread.currentThread().getName() + "\t"+"FlowLimitController ------testD");
         return R.ok("------testD");
     }
 
@@ -53,13 +60,13 @@ public class FlowLimitController {
     @SentinelResource(value = "testHotKey",blockHandler = "deal_testHotKey")
     public R testHotKey(@RequestParam(value = "p1",required = false) String p1,
                         @RequestParam(value = "p1",required = false) String p2){
-        logger.info("FlowLimitController ---测试热点限流---testHotKey,o(^_^)o");
+        logger.info(Thread.currentThread().getName() + "\t"+"FlowLimitController ---测试热点限流---testHotKey,o(^_^)o");
         return R.ok("------testHotKey");
     }
 
     public R deal_testHotKey(String p1, String p2, BlockException exception){
-        logger.info("FlowLimitController ---测试热点限流BlockException---deal_testHotKey,o(T-T)o");
-        return R.ok("------testHotKey");
+        logger.info(Thread.currentThread().getName() + "\t"+"FlowLimitController ---测试热点限流BlockException---deal_testHotKey,o(T-T)o");
+        return R.error("------testHotKey,服务不可用");
     }
 
 }
