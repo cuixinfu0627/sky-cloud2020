@@ -18,27 +18,27 @@ public class OrderFeignFallBackService implements OrderFeignService {
 
     @Override
     public R list(Map<String, Object> params) {
-        return R.error("-----------------------OrderFeignFallBackService fall back-list");
+        return R.error("-----------------------服务返回 OrderFeignFallBackService fall back-list");
     }
 
     @Override
     public R info(Long id) {
-        return R.error("-----------------------OrderFeignService fall back-info");
+        return R.error("-----------------------服务返回 OrderFeignService fall back-info");
     }
 
     @Override
     public R create(OrderEntity order) {
-        return R.error("-----------------------OrderFeignService fall back-create");
+        return R.error("-----------------------服务返回 OrderFeignService fall back-create");
     }
 
     @Override
     public R openfeignTimeout() {
-        return R.error("-----------------------OrderFeignService fall back-openfeignTimeout");
+        return R.error("-----------------------服务返回 OrderFeignService fall back-openfeignTimeout");
     }
 
     @Override
     public R hystrixCircuitBreaker(OrderEntity order) {
-        return R.error("-----------------------OrderFeignService fall back-hystrixCircuitBreaker");
+        return R.error("-----------------------服务返回 OrderFeignService fall back-hystrixCircuitBreaker");
     }
 
 }
