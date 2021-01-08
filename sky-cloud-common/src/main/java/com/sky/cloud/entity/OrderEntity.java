@@ -76,4 +76,9 @@ public class OrderEntity implements Serializable {
 
 	@TableField(exist=false)
 	private ItemEntity item;
+
+	/**
+	 * 订单数量
+	 */
+	private Integer count;
 }

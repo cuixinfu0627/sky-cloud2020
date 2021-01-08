@@ -12,6 +12,12 @@
     <artifactId>sky-cloud-passport</artifactId>
 
     <dependencies>
+        <!-- 远程调用 feign -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
         <!--1、nacos discovery是每个微服务都需要使用的依赖，所以提取到父类-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
@@ -35,11 +41,22 @@
             <artifactId>sentinel-datasource-nacos</artifactId>
         </dependency>
 
-        <!-- 远程调用 feign -->
+        <!--5、分布式事务解决方案 Seata
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.seata</groupId>
+                    <artifactId>seata-all</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+        <dependency>
+            <groupId>io.seata</groupId>
+            <artifactId>seata-all</artifactId>
+            <version>0.9.0</version>
+        </dependency> -->
 
         <!-- 链路追踪 sleuth+zipkin
         <dependency>

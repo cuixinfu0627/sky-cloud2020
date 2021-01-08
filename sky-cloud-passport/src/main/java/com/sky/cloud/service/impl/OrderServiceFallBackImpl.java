@@ -1,20 +1,36 @@
 package com.sky.cloud.service.impl;
 
 import com.sky.cloud.entity.OrderEntity;
-import com.sky.cloud.service.OrderFeignService;
+import com.sky.cloud.service.OrderService;
 import com.sky.cloud.view.R;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 /**
- * @name: OrderFeignServiceImpl <tb>
- * @title: 全局处理服务降级 逻辑 <tb>
+ * @name: OrderServiceImpl <tb>
+ * @title: 请输入类描述  <tb>
  * @author: cuixinfu@51play.com <tb>
- * @date: 2020/12/22 9:48 <tb>
+ * @date: 2021/1/8 16:30 <tb>
  */
 @Component
-public class OrderFeignFallBackService implements OrderFeignService {
+public class OrderServiceFallBackImpl implements OrderService {
+
+    @Override
+    public R create(OrderEntity order) {
+        return R.error("-----------------------服务返回 create OrderServiceFallBackImpl fall back-list");
+    }
+
+    @Override
+    public R update(OrderEntity order) {
+        return R.error("----------------------- 服务返回 update OrderServiceFallBackImpl fall back-list");
+    }
+
+    @Override
+    public R updateStatus(OrderEntity order) {
+        return R.error("----------------------- 服务返回 updateStatus OrderServiceFallBackImpl fall back-list");
+    }
+
 
     @Override
     public R list(Map<String, Object> params) {
@@ -24,11 +40,6 @@ public class OrderFeignFallBackService implements OrderFeignService {
     @Override
     public R info(Long id) {
         return R.error("-----------------------服务返回 OrderFeignService fall back-info");
-    }
-
-    @Override
-    public R create(OrderEntity order) {
-        return R.error("-----------------------服务返回 OrderFeignService fall back-create");
     }
 
     @Override

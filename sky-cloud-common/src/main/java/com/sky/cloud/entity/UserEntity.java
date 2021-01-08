@@ -65,4 +65,9 @@ public class UserEntity implements Serializable {
 	 */
 	private Date createTime;
 
+	/**
+	 * 商品金额。精确到2位小数;单位:元。如:200.07，表示:200元7分
+	 */
+	private String money;
+
 }

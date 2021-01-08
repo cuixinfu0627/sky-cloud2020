@@ -4,17 +4,13 @@ import com.sky.cloud.entity.ItemEntity;
 import com.sky.cloud.service.ItemService;
 import com.sky.cloud.view.PageUtils;
 import com.sky.cloud.view.R;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-
-
 /**
  * 商品表
- *
  * @author live
  * @email 870459550@qq.com
  * @date 2020-12-19 15:36:10
@@ -54,6 +50,19 @@ public class ItemController {
     public R create(@RequestBody ItemEntity item){
 		itemService.save(item);
 
+        return R.ok();
+    }
+    /**
+     * 修改商品库存
+     */
+    @PostMapping("/decrease")
+    public R decrease(@RequestBody ItemEntity item){
+        Long id = item.getId();
+        Integer stockNum = item.getStockNum();
+        ItemEntity byId = itemService.getById(id);
+        Integer newStockNum = byId.getStockNum() - stockNum ;
+        byId.setStockNum(newStockNum);
+        itemService.updateById(item);
         return R.ok();
     }
 

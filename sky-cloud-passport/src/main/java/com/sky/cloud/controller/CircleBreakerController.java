@@ -3,6 +3,7 @@ package com.sky.cloud.controller;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.sky.cloud.entity.OrderEntity;
+import com.sky.cloud.service.OrderService;
 import com.sky.cloud.view.R;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,6 +30,13 @@ public class CircleBreakerController {
     @Resource
     private RestTemplate restTemplate; //ribbon 方式调用
 
+    @Resource
+    private OrderService orderService;
+
+    /**
+     * @title: 服务熔断和服务异常处理测试 <tb>
+     * @author: cuixinfu@51play.com <tb>
+     */
     @GetMapping("/order/info/{id}")
     //@SentinelResource(value = "fallback")
     //@SentinelResource(value = "fallback",fallback = "handlerFallback")
@@ -38,11 +46,15 @@ public class CircleBreakerController {
             blockHandler = "blockHandler")
     public R info(@PathVariable("id") Long id){
 
-        R result = restTemplate.getForObject(invoke_url + "/order/info/"+id, R.class);
+        //1、ribbon方式 @LoadBalanced 调用
+        //R result = restTemplate.getForObject(invoke_url + "/order/info/"+id, R.class);
+
+        //2、openfeign 方式调用
+        R result = orderService.info(id);
 
         int code = Integer.valueOf(result.get("code").toString());
 
-        if (code != 0){
+        if (code != 200){
             throw  new NullPointerException("NullPointerException,该ID没有对应记录，空指针异常");
         }
         return result;

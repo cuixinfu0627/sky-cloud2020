@@ -41,6 +41,7 @@ spring:
 # 消费者将要去访问的微服务名称（注册成功进nacos的微服务是供者）
 service-url:
   nacos-order-service: http://order-service
+  nacos-item-service: http://item-service
 
 # web服务监控端点暴露
 management:

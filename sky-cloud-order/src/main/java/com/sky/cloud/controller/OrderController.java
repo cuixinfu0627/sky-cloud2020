@@ -1,5 +1,6 @@
 package com.sky.cloud.controller;
 
+import com.sky.cloud.entity.ItemEntity;
 import com.sky.cloud.entity.OrderEntity;
 import com.sky.cloud.service.OrderService;
 import com.sky.cloud.view.PageUtils;
@@ -68,6 +69,28 @@ public class OrderController {
 		orderService.save(order);
 
         return R.ok("创建订单成功,serverPort:" + serverPort);
+    }
+
+    /**
+     * 更新
+     */
+    @RequestMapping("/update")
+    public R update(@RequestBody OrderEntity order){
+        orderService.updateById(order);
+        return R.ok();
+    }
+
+    /**
+     * 更新订单状态
+     */
+    @RequestMapping("/updateStatus")
+    public R updateStatus(@RequestBody OrderEntity order){
+        OrderEntity orderEntity = orderService.getById(order.getId());
+        orderEntity.setStatus(order.getStatus());
+        orderEntity.setPayment(order.getPayment());
+        orderEntity.setPaymentTime(new Date());
+        orderService.updateById(orderEntity);
+        return R.ok();
     }
 
     /**

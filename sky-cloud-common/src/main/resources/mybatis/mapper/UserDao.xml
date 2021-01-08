@@ -16,6 +16,7 @@
         <result property="province" column="province"/>
         <result property="city" column="city"/>
         <result property="createTime" column="create_time"/>
+        <result property="money" column="money"/>
     </resultMap>
 
 
