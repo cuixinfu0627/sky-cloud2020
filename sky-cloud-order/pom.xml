@@ -19,12 +19,6 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
-        <!--链路追踪 Sleuth+ZipKin-->
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>com.sky.cloud</groupId>
             <artifactId>sky-cloud-common</artifactId>

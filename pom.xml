@@ -27,7 +27,6 @@
     <module>sky-cloud-item</module>
     <module>sky-cloud-order</module>
     <module>sky-cloud-passport</module>
-    <module>sky-cloud-order2</module>
   </modules>
 
   <properties>
@@ -261,11 +260,6 @@
         <order-server-port-suffix>02</order-server-port-suffix>
         <order-server-port>80${order-server-port-suffix}</order-server-port>
         <order-devtools-port>100${order-server-port-suffix}</order-devtools-port>
-
-        <!--order2-service 模块-->
-        <order2-server-port-suffix>02</order2-server-port-suffix>
-        <order2-server-port>81${order2-server-port-suffix}</order2-server-port>
-        <order2-devtools-port>100${order2-server-port-suffix}</order2-devtools-port>
 
         <!--item-service 模块-->
         <item-server-port-suffix>03</item-server-port-suffix>

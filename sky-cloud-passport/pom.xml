@@ -41,11 +41,11 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
-        <!-- 链路追踪 sleuth+zipkin -->
+        <!-- 链路追踪 sleuth+zipkin
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>com.sky.cloud</groupId>
