@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @name: FlowLimitController <tb>
- * @title: 1、Sentinel 流控测试  <tb>
+ * @title: 1、Sentinel 服务限流-流控测试  <tb>
  * @author: cuixinfu@51play.com <tb>
  * @date: 2021/1/5 10:23<tb>
  */
