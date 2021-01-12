@@ -19,6 +19,7 @@ import com.sky.cloud.entity.UserEntity;
 import com.sky.cloud.service.ItemService;
 import com.sky.cloud.service.OrderService;
 import com.sky.cloud.service.UserService;
+import com.sky.cloud.snowflake.IdGeneratorSnowflake;
 import com.sky.cloud.view.PageUtils;
 import com.sky.cloud.view.Query;
 import com.sky.cloud.view.R;
@@ -34,6 +35,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Service("userService")
 public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements UserService {
@@ -42,6 +45,9 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 
 	@Autowired
 	private UserDao userDao;
+
+	@Autowired
+	private IdGeneratorSnowflake idGenerator;
 
 	@Resource
 	private OrderService orderService;
@@ -61,6 +67,20 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
 
 		return new PageUtils(page);
 	}
+
+
+	@Override
+	public String getIDBySnowFlake() {
+		ExecutorService threadPool = Executors.newFixedThreadPool(5);
+		for (int i = 1;i<=20; i++){
+			threadPool.submit(() -> {
+				System.out.println("UserServiceImpl.getIDBySnowFlake: " + idGenerator.snowflakeId());
+			});
+		}
+		threadPool.shutdown();
+		return "hello snowflake";
+	}
+
 
 	@Override
 	//@GlobalTransactional(name = "sky-create-order",rollbackFor = Exception.class)

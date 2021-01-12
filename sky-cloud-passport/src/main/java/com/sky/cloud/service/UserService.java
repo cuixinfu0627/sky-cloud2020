@@ -20,4 +20,6 @@ public interface UserService extends IService<UserEntity> {
 
     R createOrder(OrderEntity order);
 
+    String getIDBySnowFlake();
+
 }

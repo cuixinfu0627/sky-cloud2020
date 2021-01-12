@@ -19,8 +19,6 @@ import java.util.Map;
  * @email 870459550@qq.com
  * @date 2020-12-19 15:36:10
  */
-
-
 @RestController
 @RequestMapping("user")
 public class UserController {
@@ -31,6 +29,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * @title: 获取用户列表 <tb>
+     * @author: cuixinfu@51play.com <tb>
+     * @date: 2021/1/12 11:40<tb>
+     */
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = userService.queryPage(params);
@@ -38,6 +41,18 @@ public class UserController {
         return R.ok().put("page", page);
     }
 
+    /**
+     * @title: 雪花算法生成id <tb>
+     * @author: cuixinfu@51play.com <tb>
+     * @date: 2021/1/12 11:40<tb>
+     */
+    @RequestMapping("/snowflake")
+    public R snowflake(){
+        String snowflakeId  = userService.getIDBySnowFlake();
+        return R.ok().put("id",snowflakeId);
+    }
+
+    /** ===================远程调用模块=================== **/
     @Resource
     private RestTemplate restTemplate;
 
@@ -91,5 +106,6 @@ public class UserController {
         String result=restTemplate.getForObject(invoke_url + "/order/zipkin/", String.class);
         return result;
     }
+
 
 }
