@@ -3,20 +3,19 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>sky-cloud2020</artifactId>
+        <artifactId>sky-cloud-common</artifactId>
         <groupId>com.sky.cloud</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sky.cloud</groupId>
-    <artifactId>sky-cloud-common</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>sky-cloud-common-entity</artifactId>
 
-    <modules>
-        <module>sky-cloud-common-base</module>
-        <module>sky-cloud-common-key</module>
-        <module>sky-cloud-common-entity</module>
-    </modules>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
