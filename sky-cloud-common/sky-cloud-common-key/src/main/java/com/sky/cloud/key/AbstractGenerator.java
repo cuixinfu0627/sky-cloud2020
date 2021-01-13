@@ -98,7 +98,7 @@ public abstract class AbstractGenerator implements PrimarykeyGenerator {
     public abstract LeafSegment getIds(String dbName, String tableName, boolean must) ;
 
     public String formKey(String dbName, String tableName) {
-        String key = this.getPrefix() + "_".concat(dbName).concat("_DB_").concat(tableName);
+        String key = this.getPrefix() + "_".concat(dbName).concat("_db_").concat(tableName);
         return isUpercase() ? key.toUpperCase() : key.toLowerCase() ;
     }
 
