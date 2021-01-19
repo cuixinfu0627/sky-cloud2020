@@ -14,8 +14,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>sky-cloud-common-base</module>
         <module>sky-cloud-common-key</module>
+        <module>sky-cloud-common-base</module>
         <module>sky-cloud-common-entity</module>
     </modules>
 
