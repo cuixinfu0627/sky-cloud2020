@@ -1,7 +1,6 @@
-package com.sky.cloud.other;
+package com.sky.cloud.other.reflect;
 
 import java.lang.reflect.Method;
-import java.util.Map;
 
 /**
  * @name: OtherProxyDemo <tb>
