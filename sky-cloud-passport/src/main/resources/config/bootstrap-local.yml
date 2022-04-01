@@ -18,7 +18,7 @@ spring:
     sentinel:
       transport:
         # sentinel dashboard 地址
-        dashboard: 127.0.0.1:8080
+        dashboard: 127.0.0.1:8088
         # 默认为8719，如果被占用会自动+1，直到找到为止
         port: 8719
       # 流控规则持久化到nacos

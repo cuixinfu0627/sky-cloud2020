@@ -23,7 +23,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
         <!--1、nacos discovery是每个微服务都需要使用的依赖，所以提取到父类-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

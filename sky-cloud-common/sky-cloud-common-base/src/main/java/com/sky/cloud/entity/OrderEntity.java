@@ -80,5 +80,6 @@ public class OrderEntity implements Serializable {
 	/**
 	 * 订单数量
 	 */
+	@TableField(exist=false)
 	private Integer count;
 }

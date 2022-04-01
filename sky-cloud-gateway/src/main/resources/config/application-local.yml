@@ -3,12 +3,11 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: 127.0.0.1:8848
     sentinel:
       transport:
         port: 8719 # sentinel需要回调服务应用
-        dashboard: 127.0.0.1:8080
-
+        dashboard: 127.0.0.1:8088
     gateway:
       discovery:
         locator:
@@ -32,7 +31,6 @@ spring:
             #- PrefixPath=/order                   #请求前缀要为这个
             #- Host=**.sky.com
             #- Method=POST
-
 # 暴露监控端点
 management:
   endpoints:
